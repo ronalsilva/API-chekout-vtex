@@ -407,6 +407,8 @@ function validateUser(emailUser) {
 												xhr.addEventListener("readystatechange", function () {
 												  	if (this.readyState === 4) {
 												    	console.log(this.responseText);
+
+												    	window.location = "/checkout/orderPlaced/?og="+orderGroup;
 												  	}
 												});
 
@@ -654,6 +656,7 @@ $(document).ready(function() {
 	formCard();
 	requestGetCard();
 	validadeCard();
+	clickFinish();
 	
 	$('.payment-group-list-btn a').on('click', function(even) {
 		event.preventDefault();
