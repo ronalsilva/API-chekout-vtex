@@ -16,20 +16,20 @@ Reconstruction of the part of payment with card
 # Requisitions used
 
 ## GetProfile
-=======
+
 - http://{{accountName}}.vtexcommercestable.com.br/api/checkout/pub/profiles?email={{email}}
-=======
+
 Get profile of user
 
 
 ## Place Order
-=======
+
 - http://{{accountName}}.vtexcommercestable.com.br/api/checkout/pub/orders
-=======
-To get the address Is used the method GetProfile (Using the requisition GetProfile). Using the requisition "Place Order" if the user exists.
+
+- To get the address Is used the method GetProfile (Using the requisition GetProfile). Using the requisition "Place Order" if the user exists.
 
 ### Headers
-=======
+
 - Content-Type - application/json
 - Accept - application/json
 - x-vtex-api-appKey - {{X-VTEX-API-AppKey}}
@@ -37,17 +37,17 @@ To get the address Is used the method GetProfile (Using the requisition GetProfi
 
 
 ## Place Order Existing User
-=======
+
 - http://{{accountName}}.vtexcommercestable.com.br/api/checkout/pub/orders
-=======
-To get the address Is used the method GetProfile (Using the requisition GetProfile). Using the requisition "Place Order" if the user exists.
+
+- To get the address Is used the method GetProfile (Using the requisition GetProfile). Using the requisition "Place Order" if the user exists.
 
 ### Headers
-=======
+
 - Content-Type - application/json
 - Accept - application/json
 
-# Example using body (Select the option "raw"). Example das requisitions "Place Order Existing User" and "Place Order"
+## Example using body (Select the option "raw"). Example das requisitions "Place Order Existing User" and "Place Order"
 
     {
       "items": [{
@@ -105,16 +105,15 @@ To get the address Is used the method GetProfile (Using the requisition GetProfi
 
 
 ## Send Payment
-=======
+
 - https://{{accountName}}.vtexpayments.com.br/api/pub/transactions/{{transactionId}}/payments
-=======
-Send payment.
+
+- Send payment.
 
 ### Headers
-=======
+
 - Content-Type - application/json
 
-    [
       {
         "paymentSystem":6,
         "paymentSystemName":"Boleto Bancário",
@@ -133,9 +132,8 @@ Send payment.
             "merchantName": "{{accountName}}"
         }
       }
-    ]
 
-=======
+
 Ex:. Send a GiftCard and two credit cards payment data
 
     [
@@ -211,26 +209,25 @@ Ex:. Send a GiftCard and two credit cards payment data
 
 
 ## Gateway CallBack
-=======
+
 - http://{{accountName}}.vtexcommercestable.com.br/api/checkout/pub/gatewayCallback/{{orderGroup}}
-=======
-Get the {{orderGroup}} number from the PUT order reponse. "Header" To get the {{CheckoutAuthorization}} value, take a look at the Response Headers for the Put PlaceOrder, will be a set cookie with the name Vtex_CHKO_Auth, you will need it's value.
+
+- Get the {{orderGroup}} number from the PUT order reponse. "Header" To get the {{CheckoutAuthorization}} value, take a look at the Response Headers for the Put PlaceOrder, will be a set cookie with the name Vtex_CHKO_Auth, you will need it's value.
 Ex.: RnirrhfXNUixQle4kJaNtUo2SdX5WQZwXP4T+gv+dlw=
 
 ### Headers
-=======
+
 - Content-Type - application/json
 - Accept - application/json
 - Set-Cookie - Vtex_CHKO_Auth=JpkQgZR+MlpgnB1PNfx8x5MBtOVAhjTJGA6BZzfy3k8=
 
 
 ## Function formCard().
-=======
 Create new HTML of payment.
 
 
 ## Function requestGetCard().
-=======
+
 Create select with options of payment.
 
     var data = JSON.stringify({
@@ -251,7 +248,7 @@ Create select with options of payment.
 
 
 ## Function validateUser().
-=======
+
 Validation of user (If exist or not). If there is anger pick up the user and purchase data
 
     //profile
